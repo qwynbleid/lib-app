@@ -40,7 +40,7 @@ export const BookCheckoutPage = () => {
 
     useEffect(() => {
         const fetchBook = async () => {
-            const baseUrl: string = `http://51.20.67.41:8080/api/books/${bookId}`;
+            const baseUrl: string = `https://51.20.67.41:8080/api/books/${bookId}`;
 
             const response = await fetch(baseUrl);
 
@@ -72,7 +72,7 @@ export const BookCheckoutPage = () => {
     useEffect(() => {
         const fetchBookReviews = async () => {
 
-            const reviewUrl: string = `http://51.20.67.41:8080/api/reviews/search/findByBookId?bookId=${bookId}`
+            const reviewUrl: string = `https://51.20.67.41:8080/api/reviews/search/findByBookId?bookId=${bookId}`
 
             const responseReviews = await fetch(reviewUrl);
 
@@ -119,7 +119,7 @@ export const BookCheckoutPage = () => {
     useEffect(() => {
         const fetchUserReviewBook = async () => {
             if (authState && authState.isAuthenticated) {
-                const url = `http://51.20.67.41:8080/api/reviews/secure/user/book?bookId=${bookId}`;
+                const url = `https://51.20.67.41:8080/api/reviews/secure/user/book?bookId=${bookId}`;
                 const requestOptions = {
                     method: 'GET',
                     headers: {
@@ -145,7 +145,7 @@ export const BookCheckoutPage = () => {
     useEffect(() => {
         const fetchUserCurrentLoansCount = async () => {
             if (authState && authState.isAuthenticated) {
-                const url = `http://51.20.67.41:8080/api/books/secure/currentloans/count`;
+                const url = `https://51.20.67.41:8080/api/books/secure/currentloans/count`;
                 const requestOptions = {
                     method: 'GET',
                     headers: {
@@ -171,7 +171,7 @@ export const BookCheckoutPage = () => {
     useEffect(() => {
         const fetchUserCheckedOutBook = async () => {
             if (authState && authState.isAuthenticated) {
-                const url = `http://51.20.67.41:8080/api/books/secure/ischeckedout/byuser?bookId=${bookId}`;
+                const url = `https://51.20.67.41:8080/api/books/secure/ischeckedout/byuser?bookId=${bookId}`;
                 const requestOptions = {
                     method: 'GET',
                     headers: {
@@ -211,7 +211,7 @@ export const BookCheckoutPage = () => {
     }
 
     async function checkoutBook() {
-        const url = `http://51.20.67.41:8080/api/books/secure/checkout?bookId=${book?.id}`;
+        const url = `https://51.20.67.41:8080/api/books/secure/checkout?bookId=${book?.id}`;
         const requestOptions = {
             method: 'PUT',
             headers: {
@@ -232,7 +232,7 @@ export const BookCheckoutPage = () => {
             bookId = book?.id;
         }
         const reviewRequestModel = new ReviewRequestModel(starInput, bookId, reviewDescription);
-        const url = `http://51.20.67.41:8080/api/reviews/secure`;
+        const url = `https://51.20.67.41:8080/api/reviews/secure`;
         const requestOptions = {
             method: 'POST',
             headers: {
