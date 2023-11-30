@@ -22,7 +22,7 @@ export const ReviewListPage = () => {
     useEffect(() => {
         const fetchBookReviews = async () => {
 
-            const reviewUrl: string = `http://51.20.67.41:8080/api/reviews/search/findByBookId?bookId=${bookId}&page=${currentPage-1}&size=${reviewsPerPage}`
+            const reviewUrl: string = `https://51.20.67.41:8080/api/reviews/search/findByBookId?bookId=${bookId}&page=${currentPage-1}&size=${reviewsPerPage}`
 
             const responseReviews = await fetch(reviewUrl);
 
